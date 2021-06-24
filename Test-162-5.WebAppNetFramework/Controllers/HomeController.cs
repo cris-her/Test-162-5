@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Transbank.Webpay.WebpayPlus;
+using System.Net;
 
 namespace Test_162_5.WebAppNetFramework.Controllers
 {
@@ -10,33 +12,12 @@ namespace Test_162_5.WebAppNetFramework.Controllers
     {
         public ActionResult Index()
         {
+            ServicePointManager.Expect100Continue = true;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
+            ViewBag.Title = "Transbank .Net SDK";
             return View();
         }
 
-        public ActionResult Return()
-        {
-
-
-            return View();
-        }
-
-        public ActionResult Final()
-        {
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }
